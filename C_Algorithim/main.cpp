@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -18,8 +19,17 @@ bool ePali(string text) {
     return true;
 }
 
+string clear_text(string text) {
+    //removes spaces from the string
+    text.erase(remove_if(text.begin(), text.end(), ::isspace), text.end());
+    //brings all character to lower case
+    transform(text.begin(), text.end(), text.begin(), ::tolower);
+
+    return text;
+}
+
 int main() {
-    if (ePali("arara") == true) {
+    if (ePali(clear_text("A basE dO Teto desaba"))) {
         cout << "E Palindromo: Verdadeiro" << endl;
     }
     else {
@@ -28,3 +38,4 @@ int main() {
 
     return 0;
 }
+
