@@ -29,7 +29,7 @@ string clear_text(string text) {
     //removes spaces from the string
     text.erase(remove_if(text.begin(), text.end(), ::isspace), text.end());
 
-    //brings all character to lower case
+    //brings all characters to lower case
     transform(text.begin(), text.end(), text.begin(), ::tolower);
 
     return text;
@@ -37,10 +37,10 @@ string clear_text(string text) {
 
 
 
-//Just using native C stuff
+//Just using native C++ and sring lib stuff
 string clear_text2 (string texto) {
 
-    //removes spaces from the string
+    //also removes spaces from the string
     for (int c = 0; c < texto.length(); c++) {
         if (texto[c] == ' ') {
             for (int a = c; a < texto.length() - 1; a++) {
@@ -48,6 +48,7 @@ string clear_text2 (string texto) {
             }
             texto.pop_back();
         }
+        //also brings all characters to lower case
         if (texto[c] >= 'A' && texto[c] <= 'Z') {
                 texto[c] += 32;
         }
