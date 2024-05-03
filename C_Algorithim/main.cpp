@@ -56,6 +56,23 @@ string clear_text2 (string texto) {
      return texto;
 }
 
+//algorithm that shows which is the biggest number in array
+int subtractVals(int values[][3]) {
+    int bgNum = 0;
+
+    if(*values[0] - *values[1] > 0 && *values[0] - *values[2] > 0) {
+        bgNum = *values[0];
+    }
+    else if(*values[1] - *values[0] > 0 && *values[1] - *values[2] > 0) {
+        bgNum = *values[1];
+    }
+    else {
+        bgNum = *values[2];
+    }
+
+    return bgNum;
+}
+
 int main() {
     if (ePali(clear_text2("A basE dO Teto desAba"))) {
         cout << "E Palindromo: Verdadeiro" << endl;
@@ -63,6 +80,10 @@ int main() {
     else {
         cout << "E Palindromo: Falso" << endl;
     }
+
+    int values[][3] = {{9, 11, 9}};
+
+    std::cout << subtractVals(values);
 
     return 0;
 }
