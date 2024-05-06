@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <stdio.h>
 
+//Don't need to worry about std:: command
 using namespace std;
 
 
@@ -23,7 +24,7 @@ bool ePali(string text) {
 }
 
 
-//using algorithim labrary
+//using algorithm library
 string clear_text(string text) {
 
     //removes spaces from the string
@@ -57,8 +58,8 @@ string clear_text2 (string texto) {
 }
 
 //algorithm that shows which is the biggest number in array
-int subtractVals(int values[][3]) {
-    int bgNum = 0;
+int subtractVals(int *values[][3]) {
+    int *bgNum = 0;
 
     if(*values[0] - *values[1] > 0 && *values[0] - *values[2] > 0) {
         bgNum = *values[0];
@@ -83,7 +84,7 @@ int main() {
 
     int values[][3] = {{9, 11, 9}};
 
-    std::cout << subtractVals(values);
+    cout << subtractVals(*values);
 
     return 0;
 }
