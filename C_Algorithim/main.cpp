@@ -2,6 +2,7 @@
 #include <string>
 #include <algorithm>
 #include <stdio.h>
+#define Size 7
 
 //Don't need to worry about std:: command
 using namespace std;
@@ -30,7 +31,7 @@ string clear_text(string text) {
     //removes spaces from the string
     text.erase(remove_if(text.begin(), text.end(), ::isspace), text.end());
 
-    //brings all characters to lower case
+    //brings all character to lower case
     transform(text.begin(), text.end(), text.begin(), ::tolower);
 
     return text;
@@ -38,7 +39,7 @@ string clear_text(string text) {
 
 
 
-//Just using native C++ and sring lib stuff
+//Just using native C stuff
 string clear_text2 (string texto) {
 
     //also removes spaces from the string
@@ -49,7 +50,7 @@ string clear_text2 (string texto) {
             }
             texto.pop_back();
         }
-        //also brings all characters to lower case
+        //also brings all character to lower case
         if (texto[c] >= 'A' && texto[c] <= 'Z') {
                 texto[c] += 32;
         }
@@ -57,21 +58,31 @@ string clear_text2 (string texto) {
      return texto;
 }
 
-//algorithm that shows which is the biggest number in array
-int subtractVals(int *values[][3]) {
-    int *bgNum = 0;
+//algorithm that shows which is the smallest number in array
+int findBig(int values[3]) {
+    int bgNum = values[0];
 
-    if(*values[0] - *values[1] > 0 && *values[0] - *values[2] > 0) {
-        bgNum = *values[0];
+    for(int i = 0; i < Size; i++) {
+        if(i[values] < bgNum) {
+           bgNum = i[values];
+        }
     }
-    else if(*values[1] - *values[0] > 0 && *values[1] - *values[2] > 0) {
-        bgNum = *values[1];
-    }
-    else {
-        bgNum = *values[2];
-    }
-
     return bgNum;
+}
+
+//Algorithm that reverses string
+string str = "hello world!!!";
+
+string rev_tex(string tex) {
+    for(int k = 0; k < tex.length() / 2; k++) {
+       char character = tex[k];
+
+       tex[k] = tex[tex.length() - k - 1];
+
+       tex[tex.length() - k - 1] = character;
+    }
+
+    return tex;
 }
 
 int main() {
@@ -82,9 +93,15 @@ int main() {
         cout << "E Palindromo: Falso" << endl;
     }
 
-    int values[][3] = {{9, 11, 9}};
+    int values[] = {9, 11, 9, 13, -4, 0, 7};
 
-    cout << subtractVals(*values);
+        cout << findBig(values) <<endl;
+
+        string finalResult = rev_tex(str);
+
+        for(int s = 0; s < finalResult.length(); s++) {
+           printf("%c", finalResult[s]);
+        }
 
     return 0;
 }
