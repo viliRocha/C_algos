@@ -1,3 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
 //Algorithm to generate a random password with a user determined length
 int nums[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 
