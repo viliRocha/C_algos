@@ -15,7 +15,7 @@ int random_num = 0;
 
 int random_char = 0;
 
-string password = "";
+char password[100] = "";
 
 void generate_password() {
     for(int i = 0; i < psw_ln; i++) {
@@ -35,8 +35,6 @@ void generate_password() {
             random_char = rand()% sizeof(otChars) / sizeof(nums[0]);
             password[i] = otChars[random_char] + '0';
         }
-
-        password[i] = '\0'; // Ends string with null
     }
 
     printf("random password:  %s\n", password);
